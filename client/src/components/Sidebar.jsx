@@ -34,7 +34,7 @@ const Sidebar = () => {
           className="w-10 h-10"
         />
         {/* Show dark mode logo if dark mode is enabled */}
-        {darkMode ? (
+        {/* {darkMode ? (
           <img
             src={logoTextDarkMode}
             alt="Sakura Study Text Logo"
@@ -46,7 +46,7 @@ const Sidebar = () => {
             alt="Sakura Study Text Logo"
             className="w-auto h-6 sidebar-text"
           />
-        )}
+        )} */}
       </NavLink>
 
       {/* Navigation Links */}
