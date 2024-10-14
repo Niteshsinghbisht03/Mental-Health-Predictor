@@ -1,8 +1,8 @@
 // This contains the routes for the app and additional styling for the app depending on logged in state and path
-import { useEffect } from 'react';
+import { useEffect ,useState } from 'react';
 import { Header, Footer, Sidebar, MobileMenu } from '.';
 import { Route, Routes, useLocation } from 'react-router-dom';
-
+import { Navigate } from 'react-router-dom';
 import { Home, Login, Signup, NoMatch, Lessons, Characters, Report, Profile, QuizPage ,QuestionPage } from '../pages';
 
 import Auth from '../utils/auth';
@@ -20,6 +20,14 @@ const MainSection = () => {
     // Scroll to the top of the page on route change
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const [dataFromChild, setDataFromChild] = useState([]);
+
+  const handleDataChange = (childData) => {
+    setDataFromChild(childData);
+    <Navigate to="/report" />
+  };
+ console.log("in main section",dataFromChild)
 
   return (
     <>
@@ -55,6 +63,10 @@ const MainSection = () => {
             <Route
               path="/report"
               element={<Report />}
+            />
+             <Route
+              path="/checkup/test"
+              element={<QuestionPage data={lessonData} onDataChange={handleDataChange}/>}
             />
             <Route
               path="/profile"
